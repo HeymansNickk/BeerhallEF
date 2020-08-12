@@ -25,15 +25,21 @@ namespace BeerhallEF.Data.Mapping
             builder.Property(t => t.Street).HasMaxLength(100);
 
             builder.Property(t => t.BrewerId).ValueGeneratedOnAdd();
+            #endregion
 
-            //Mapping associations
+            #region Associations
             builder.HasMany(t => t.Beers)
                 .WithOne()
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            #endregion
+            builder.HasOne(t => t.Location)
+                .WithMany()
+                .HasForeignKey(nameof(Location.PostalCode))
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            #endregion
 
 
         }

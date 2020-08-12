@@ -16,8 +16,10 @@ namespace BeerhallEF.Models
         public string Street { get; set; }
         public int? Turnover { get; set; }
 
-        public ICollection<Beer> Beers { get; set; }
+        public ICollection<Beer> Beers { get; private set; }
         public int NrOfBeers => Beers.Count;
+
+        public Location Location { get; set; }
         #endregion
 
         protected Brewer()
