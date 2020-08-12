@@ -12,6 +12,8 @@ namespace BeerhallEF.Data.Mapping
         public void Configure(EntityTypeBuilder<Beer> builder)
         {
             builder.Property(b => b.Name).HasMaxLength(100).IsRequired();
+
+            
         }
     }
 }
