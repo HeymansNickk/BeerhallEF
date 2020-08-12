@@ -17,6 +17,11 @@ namespace BeerhallEF.Data.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            //Inheritance : THP, and renaming the discriminator
+            builder.HasDiscriminator<string>("type")
+                .HasValue<OnlineCourse>("Online")
+                .HasValue<OnsiteCourse>("Onsite");
+
         }
     }
 }

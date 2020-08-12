@@ -7,13 +7,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BeerhallEF.Data.Mapping
 {
-    class BeerConfiguration : IEntityTypeConfiguration<Beer>
+    class OnlineCourseConfiguration : IEntityTypeConfiguration<OnlineCourse>
     {
-        public void Configure(EntityTypeBuilder<Beer> builder)
+        public void Configure(EntityTypeBuilder<OnlineCourse> builder)
         {
-            builder.Property(b => b.Name).HasMaxLength(100).IsRequired();
-
-            builder.HasIndex(t => t.Name).IsUnique(true);
+            builder.Property(t => t.Url)
+                .HasMaxLength(100);
         }
     }
 }

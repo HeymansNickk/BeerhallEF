@@ -43,7 +43,6 @@ namespace BeerhallEF.Data.Mapping
                 .WithOne()
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
-
             #endregion
 
 
