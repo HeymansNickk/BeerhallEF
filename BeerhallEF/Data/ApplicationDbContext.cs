@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BeerhallEF.Data.Mapping;
 using BeerhallEF.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,12 @@ namespace BeerhallEF.Data
         {
             var connectionstring = @"Server=.;Database=Beerhall;Integrated Security=True;";
             optionsBuilder.UseSqlServer(connectionstring);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new BrewerConfiguration());
         }
     }
 }
