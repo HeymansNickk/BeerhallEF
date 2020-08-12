@@ -39,6 +39,11 @@ namespace BeerhallEF.Data.Mapping
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.HasMany(t => t.Courses)
+                .WithOne()
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
             #endregion
 
 
