@@ -21,9 +21,10 @@ namespace BeerhallEF.Models
         {
         }
 
-        public Beer(string name) : this()
+        public Beer(string name, decimal price) : this()
         {
             Name = name;
+            Price = price;
         }
 
         #endregion
